@@ -56,7 +56,7 @@ when 'systemd'
 
   service 'prometheus' do
     supports :status => true, :restart => true
-    action [:enable, :start]
+    action :nothing
   end
   # rubocop:enable Style/HashSyntax
 when 'upstart'
