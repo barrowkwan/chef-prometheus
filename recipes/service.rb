@@ -45,13 +45,13 @@ when 'systemd'
     source 'systemd/prometheus.service.erb'
     mode '0644'
     variables(:sysconfig_file => "/etc/#{conf_dir}/#{env_file}")
-    notifies :restart, 'service[prometheus]', :delayed
+    notifies :nothing
   end
 
   template "/etc/#{conf_dir}/#{env_file}" do
     source "#{dist_dir}/#{conf_dir}/prometheus.erb"
     mode '0644'
-    notifies :restart, 'service[prometheus]', :delayed
+    notifies :nothing
   end
 
   service 'prometheus' do
